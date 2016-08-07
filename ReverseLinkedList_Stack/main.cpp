@@ -10,6 +10,7 @@
  *  输入一个链表的头结点，从尾到头打印链表的每一个节点
  */
 #include <iostream>
+#include <stdlib.h>
 #include <stack>
 
 using namespace std;
@@ -20,16 +21,13 @@ typedef struct ListNode{
 }Node;
 
 void CreateLinkedList(Node **head);
-void PrintList(Node *pNode);
 void ReverseLinkedList(Node *pNode);
 
 int main(int argc, const char * argv[])
 {
     Node *pList;
     CreateLinkedList(&pList);
-//    PrintList(pList);
     ReverseLinkedList(pList);
-
 
     return 0;
 }
@@ -53,8 +51,8 @@ void CreateLinkedList(Node **head)
 
     cin>>pInsert->element;
     pMove = *head;
-    while (pInsert->element > 0) {
-
+    while (pInsert->element > 0)
+    {
         pMove->next = pInsert;
         pMove = pInsert;
 
@@ -64,21 +62,6 @@ void CreateLinkedList(Node **head)
 
         cin>>pInsert->element;
     }
-}
-
-void PrintList(Node *pNode)
-{
-    /**
-     *  注意这里，如果单链表为空（只有一个头结点），我也让它打印（打印成功）。只是里面没有元素，打出来是空的而已,所以在控制台上就是一行空的；
-     */
-    Node *pMove;
-    pMove = pNode->next;
-    while (pMove != NULL) {
-        printf("%d ",pMove->element);
-        pMove = pMove->next;
-    }
-
-    printf("\n%s函数执行，打印带头结点的单链表成功\n",__FUNCTION__);
 }
 
 void ReverseLinkedList(Node *pNode)
@@ -99,18 +82,4 @@ void ReverseLinkedList(Node *pNode)
         cout<<top->element<<" ";
         nodes.pop();
     }
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
