@@ -10,24 +10,25 @@
  *  输入一个链表的头结点，从尾到头打印链表的每一个节点
  */
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
 typedef struct ListNode{
-
     int element;
     struct ListNode *next;
 }Node;
 
 void CreateLinkedList(Node **head);
 void PrintList(Node *pNode);
-
+void ReverseLinkedList(Node *pNode);
 
 int main(int argc, const char * argv[])
 {
     Node *pList;
     CreateLinkedList(&pList);
-    PrintList(pList);
+//    PrintList(pList);
+    ReverseLinkedList(pList);
 
 
     return 0;
@@ -79,6 +80,32 @@ void PrintList(Node *pNode)
 
     printf("\n%s函数执行，打印带头结点的单链表成功\n",__FUNCTION__);
 }
+
+void ReverseLinkedList(Node *pNode)
+{
+    stack<Node *> nodes;
+
+    // 要入栈的节点是真正链表的第一个结点，而不是头结点
+    pNode = pNode->next;
+    while (pNode != NULL)
+    {
+        nodes.push(pNode);
+        pNode = pNode->next;
+    }
+
+    while (!nodes.empty())
+    {
+        Node *top = nodes.top();
+        cout<<top->element<<" ";
+        nodes.pop();
+    }
+
+
+
+
+
+}
+
 
 
 
