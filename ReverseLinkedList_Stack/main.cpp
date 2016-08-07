@@ -50,18 +50,18 @@ void CreateLinkedList(Node **head)
     memset(pInsert, 0, sizeof(Node));
     pInsert->next = NULL;
 
-    scanf("%d",&(pInsert->element));
+    cin>>pInsert->element;
     pMove = *head;
     while (pInsert->element > 0) {
 
         pMove->next = pInsert;
         pMove = pInsert;
 
-        pInsert = (Node *)malloc(sizeof(Node)); 
+        pInsert = (Node *)malloc(sizeof(Node));
         memset(pInsert, 0, sizeof(Node));
         pInsert->next = NULL;
 
-        scanf("%d",&(pInsert->element));
+        cin>>pInsert->element;
     }
 }
 
